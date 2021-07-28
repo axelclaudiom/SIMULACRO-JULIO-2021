@@ -1,4 +1,4 @@
-/*
+/* faltan las validaciones nada mas
 Realizar el algoritmo que permita ingresar los datos de una compra de productos alimenticios, hasta que el cliente quiera. Por cada compra se ingresa:
 Tipo: (validar "Yerba", "Azúcar", "Café").
 Cantidad de bolsas. (más de cero).
@@ -14,7 +14,33 @@ d)	El tipo de la compra más barata. (sobre el Bruto sin descuento)
 
 function mostrar()
 {
-  
+  var respuesta;
+  var tipoBolsa;
+  var cantidadBolsas;
+  var precioBolsa;
+  var maxCantidadBolsas;
+  var tipoConMasCantidad;
+  var banderaMinimo;
+  var tipoMasBarato;
+  var compraMasBarata;
+  var cantidadYerba;
+  var descuento;
+  var importeTotalBruto;
+  var importeTotalDescuento;
+  var cantidadAzucar;
+  var cantidadYerba;
+  var cantidadCafe;
+  var calculoYerba;
+  var calculoAzucar;
+  var calculoCafe; 
+  banderaMinimo == false;
+  cantidadYerba = 0;
+  cantidadAzucar = 0;
+  cantidadCafe = 0;
+  calculoYerba = 0;
+  calculoAzucar = 0;
+  calculoCafe = 0;
+  respuesta = true;
 
   while(respuesta==true)
   {
@@ -28,32 +54,55 @@ function mostrar()
       case "yerba":
         cantidadYerba += cantidadBolsas;
         calculoYerba += cantidadBolsas * precioBolsa;
-        /*if(yerbaBandera == false)
+/*d)	El tipo de la compra más barata. (sobre el Bruto sin descuento)*/
+        if(cantidadYerba > maxCantidadBolsas)
         {
-
-        }*/
-    
+            maxCantidadBolsas = cantidadYerba;
+            tipoConMasCantidad = "Yerba";
+        }
+        if(calculoYerba < compraMasBarata || banderaMinimo == false)
+        {
+          compraMasBarata = calculoYerba;
+          tipoMasBarato = "Yerba";
+          banderaMinimo == true;
+        }
       break;        
       case "azucar":
         cantidadAzucar += cantidadBolsas;
         calculoAzucar += cantidadBolsas * precioBolsa;
-        /*if(yerbaAzucar == false)
+        if(cantidadAzucar > maxCantidadBolsas)
         {
-          
-        }*/
+            maxCantidadBolsas = cantidadAzucar;
+            tipoConMasCantidad = "Azucar";
+        }
+        
+        if(calculoAzucar < compraMasBarata || banderaMinimo == false)
+        {
+          compraMasBarata = calculoAzucar;
+          tipoMasBarato = "Azucar";
+          banderaMinimo == true;
+        }
       break;
       case "cafe":
         cantidadCafe += cantidadBolsas;
         calculoCafe += cantidadBolsas * precioBolsa;
-        /*if(yerbaCafe == false)
+        if(cantidadCafe > maxCantidadBolsas)
         {
-
-        }*/
+            maxCantidadBolsas = cantidadCafe;
+            tipoConMasCantidad = "Cafe";
+        }
+        
+        if(calculoCafe < compraMasBarata || banderaMinimo == false)
+        {
+          compraMasBarata = calculoCafe;
+          tipoMasBarato = "Cafe";
+          banderaMinimo == true;
+        }
       break;
     }
     respuesta = confirm("Desea ingresar otro producto?");
   }
-  
+/*  
   // Calculo del que vale menos
   if(calculoYerba < calculoAzucar && calculoYerba < calculoCafe)
   {
@@ -97,7 +146,7 @@ function mostrar()
         tipoMasBolsas = "Cafe";
       }
     }
-  }
+  }*/
 
   importeTotalBruto = calculoArena + calculoCemento + calculoCal;
 
@@ -118,5 +167,5 @@ function mostrar()
   document.write("El importe total bruto es: " +importeTotalBruto+"<br>");
   document.write("El importe Total con descuento es: " + importeTotalDescuento+ "<br>");
   document.write("El tipo de la compra mas barata es: " +tipoMasBarato+ "<br>");
-  document.write("El tipo con mas bolsas es: " +tipoMasBolsas);
+  document.write("El tipo con mas bolsas es: " +tipoConMasCantidad);
 }
