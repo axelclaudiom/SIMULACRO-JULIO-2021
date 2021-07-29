@@ -148,7 +148,7 @@ function mostrar()
     }
   }*/
 
-  importeTotalBruto = calculoArena + calculoCemento + calculoCal;
+  importeTotalBruto = calculoAzucar + calculoYerba + calculoCafe;
 
   if(cantidadTotalBolsas > 30)
   {
