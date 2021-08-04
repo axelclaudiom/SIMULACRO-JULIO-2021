@@ -46,9 +46,19 @@ function mostrar()
 	{
 		nombre = prompt("Ingrese el nombre");
 		edad = prompt("Ingrese la edad:");
+		edad = parseInt(edad);
 		genero = prompt("Ingrese el genero (f, m o nb)");
+		while(genero != "f" && genero != "m" && genero != "nb")
+		{
+			genero = prompt("Error.. Ingrese el genero (f, m o nb)")
+		}
 		vacuna = prompt("Ingrese el tipo de vacuna (SputnikV, AstraZeneca, Otra)");
+		while(vacuna != "SputnikV" && vacuna != "AstraZeneca" && vacuna != "Otra")
+		{
+			vacuna = prompt("Error.. Ingrese el tipo de vacuna (SputnikV, AstraZeneca, Otra)");
+		}
 		temperaturaCorporal = prompt("Ingrese la temperatura corporal");
+		temperaturaCorporal = parseInt(temperaturaCorporal);
 		
 		//a) El nombre y vacuna de la persona con mayor temperatura.
 		if(temperaturaCorporal > personaMayorTemp)
